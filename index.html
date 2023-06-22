@@ -35,8 +35,9 @@
         { summonerName: 'KeriΛ λbuser', name: 'Smonmrt' },
         { summonerName: 'SekteurHantã', name: 'Tyssoxe' },
         { summonerName: 'RaphtoNrv', name: 'Raphton' },
+        { summonerName: ' Decimus Speedy', name: 'Raphton' },
       ];
-      var apiKey = 'RGAPI-c65d1b7a-85e0-4f4e-aeaf-82d115705646'; // Remplacez par votre clé d'API Riot Games
+      var apiKey = 'RGAPI-b3d7e338-fec9-4b03-8c9a-ef3629b2bd25'; // Remplacez par votre clé d'API Riot Games
 
       var resultElement = document.getElementById('result');
       resultElement.innerHTML = ''; // Réinitialiser le contenu de la div résultat
@@ -117,10 +118,10 @@
             if (a.rank !== b.rank) {
               return rankOrder.indexOf(b.rank) - rankOrder.indexOf(a.rank);
             } else {
-              var aRankNum = parseInt(a.rank.split(' ')[1]);
-              var bRankNum = parseInt(b.rank.split(' ')[1]);
-              return bRankNum - aRankNum || a.leaguePoints - b.leaguePoints;
+              // Si les rangs sont identiques, tri par ordre décroissant des points de ligue
+              return b.leaguePoints - a.leaguePoints;
             }
+            
           });
           summonerResults.forEach(function(summonerResult) {
             var row = tableBody.insertRow();
